@@ -6,8 +6,29 @@ import os
 import base64
 import time
 import io
-
+import json
 app = FastAPI()
+
+PAYMENTS_FILE = "payments.json"
+
+def load_payments():
+    """Загружает статусы оплат из файла"""
+    if os.path.exists(PAYMENTS_FILE):
+        with open(PAYMENTS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_payment(user_id: str, status: str):
+    """Сохраняет статус оплаты для пользователя"""
+    payments = load_payments()
+    payments[user_id] = status
+    with open(PAYMENTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(payments, f)
+
+def is_paid(user_id: str) -> bool:
+    """Проверяет, оплачена ли генерация"""
+    payments = load_payments()
+    return payments.get(user_id) == "paid"
 
 # ВСТАВЬТЕ ВАШ КЛЮЧ ОТ KREA
 import os
@@ -425,7 +446,34 @@ async def status(job_id: str):
     
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+# ===== ВЕБХУК ДЛЯ ЮKASSA =====
+from fastapi import Request
 
-if __name__ == "__main__":
+@app.post("/yookassa-webhook")
+async def yookassa_webhook(request: Request):
+    """
+    Принимает уведомления от ЮKassa о статусе платежа.
+    """
+    try:
+        event_json = await request.json()
+        event = event_json.get("event")
+        
+        if event == "payment.succeeded":
+            payment_object = event_json.get("object", {})
+            user_id = payment_object.get("metadata", {}).get("user_id")
+            
+            if user_id:
+                save_payment(user_id, "paid")
+                print(f"✅ Оплата прошла для пользователя: {user_id}")
+            else:
+                print("⚠️ В уведомлении нет user_id (metadata)")
+        
+        return {"status": "ok"}
+    
+    except Exception as e:
+        print(f"❌ Ошибка в вебхуке: {e}")
+        return {"status": "ok"}
+        
+    if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     uvicorn.run(app, host="0.0.0.0", port=port)
