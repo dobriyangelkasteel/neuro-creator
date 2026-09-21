@@ -265,6 +265,24 @@ async def home():
                     <strong style="color: rgba(255,255,255,0.7);">ИНН:</strong> 164815873478<br>
                     <strong style="color: rgba(255,255,255,0.7);">Email:</strong> adel.samazov@mail.ru
                 </p>
+                            <!-- БЛОК С ЦЕНАМИ -->
+            <div style="margin-top: 20px; padding: 20px; background: rgba(99, 102, 241, 0.08); border-radius: 16px; border: 1px solid rgba(99, 102, 241, 0.15);">
+                <h3 style="color: #fff; font-size: 16px; font-weight: 600; text-align: center; margin-bottom: 14px;">
+                    💰 Стоимость генерации
+                </h3>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                    <div style="flex: 1; min-width: 140px; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 14px; text-align: center; border: 1px solid rgba(255,255,255,0.08);">
+                        <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-bottom: 6px;">🎬 Видео 5 секунд</p>
+                        <p style="color: #a78bfa; font-size: 22px; font-weight: 700; margin: 0;">199 ₽</p>
+                    </div>
+                    <div style="flex: 1; min-width: 140px; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 14px; text-align: center; border: 1px solid rgba(255,255,255,0.08);">
+                        <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-bottom: 6px;">🎬 Видео 10 секунд</p>
+                        <p style="color: #a78bfa; font-size: 22px; font-weight: 700; margin: 0;">349 ₽</p>
+                    </div>
+                </div>
+                <p style="color: rgba(255,255,255,0.4); font-size: 11px; text-align: center; margin-top: 12px;">
+                    Оплата производится за каждую генерацию отдельно
+                </p>
             </div>
         </div>
 
