@@ -258,14 +258,7 @@ async def home():
 
             <div id="result"></div>
 
-            <!-- БЛОК С РЕКВИЗИТАМИ ДЛЯ ЮKASSA -->
-            <div style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
-                <p style="color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.6;">
-                    <strong style="color: rgba(255,255,255,0.7);">Самозанятый:</strong> Харисов Адель Алмазович<br>
-                    <strong style="color: rgba(255,255,255,0.7);">ИНН:</strong> 164815873478<br>
-                    <strong style="color: rgba(255,255,255,0.7);">Email:</strong> adel.samazov@mail.ru
-                </p>
-                            <!-- БЛОК С ЦЕНАМИ -->
+                        <!-- БЛОК С ЦЕНАМИ -->
             <div style="margin-top: 20px; padding: 20px; background: rgba(99, 102, 241, 0.08); border-radius: 16px; border: 1px solid rgba(99, 102, 241, 0.15);">
                 <h3 style="color: #fff; font-size: 16px; font-weight: 600; text-align: center; margin-bottom: 14px;">
                     💰 Стоимость генерации
@@ -282,6 +275,15 @@ async def home():
                 </div>
                 <p style="color: rgba(255,255,255,0.4); font-size: 11px; text-align: center; margin-top: 12px;">
                     Оплата производится за каждую генерацию отдельно
+                </p>
+            </div>
+
+            <!-- БЛОК С РЕКВИЗИТАМИ ДЛЯ ЮKASSA -->
+            <div style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
+                <p style="color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.6;">
+                    <strong style="color: rgba(255,255,255,0.7);">Самозанятый:</strong> Харисов Адель Алмазович<br>
+                    <strong style="color: rgba(255,255,255,0.7);">ИНН:</strong> 164815873478<br>
+                    <strong style="color: rgba(255,255,255,0.7);">Email:</strong> adel.samazov@mail.ru
                 </p>
             </div>
         </div>
